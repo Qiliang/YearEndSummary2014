@@ -1,0 +1,494 @@
+/**
+ * This is a stylesheet for a demo presentation for impress.js
+ * 
+ * It is not meant to be a part of impress.js and is not required by impress.js.
+ * I expect that anyone creating a presentation for impress.js would create their own
+ * set of styles.
+ */
+
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+body {
+    font-family: 'PT Sans', sans-serif;
+    
+    min-height: 740px;
+
+    background: rgb(215, 215, 215);
+    background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 500, from(rgb(240, 240, 240)), to(rgb(190, 190, 190)));
+    background: -webkit-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
+    background:    -moz-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
+    background:      -o-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
+    background:         radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
+
+    -webkit-font-smoothing: antialiased;
+}
+
+b, strong { font-weight: bold }
+i, em { font-style: italic}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    padding: 0 0.1em;
+    background: rgba(255,255,255,0.5);
+    text-shadow: -1px -1px 2px rgba(100,100,100,0.9);
+    border-radius: 0.2em;
+    
+    -webkit-transition: 0.5s;
+    -moz-transition:    0.5s;
+    -ms-transition:     0.5s;
+    -o-transition:      0.5s;
+    transition:         0.5s;
+}
+
+a:hover {
+    background: rgba(255,255,255,1);
+    text-shadow: -1px -1px 2px rgba(100,100,100,0.5);
+}
+
+/* enable clicking on elements 'hiding' behind body in 3D */
+body     { pointer-events: none; }
+#impress { pointer-events: auto; }
+
+/* COMMON STEP STYLES */
+
+.step {
+    width: 900px;
+    padding: 40px;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:    border-box;
+    -ms-box-sizing:     border-box;
+    -o-box-sizing:      border-box;
+    box-sizing:         border-box;
+
+    font-family: 'PT Serif', georgia, serif;
+
+    font-size: 48px;
+    line-height: 1.5;
+}
+
+.step {
+    -webkit-transition: opacity 1s;
+    -moz-transition:    opacity 1s;
+    -ms-transition:     opacity 1s;
+    -o-transition:      opacity 1s;
+    transition:         opacity 1s;
+}
+
+/* fade out inactive slides */
+.step:not(.active) {
+    opacity: 0.3;
+}
+
+/* STEP SPECIFIC STYLES */
+
+/* hint on the first slide */
+
+.hint {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 200px;
+    
+    background: rgba(0,0,0,0.5);
+    color: #EEE;
+    text-align: center;
+    
+    font-size: 50px;
+    padding: 20px;
+    
+    z-index: 100;
+    
+    opacity: 0;
+    
+    -webkit-transform: translateY(400px);
+    -moz-transform:    translateY(400px);
+    -ms-transform:     translateY(400px);
+    -o-transform:      translateY(400px);
+
+    -webkit-transition: opacity 1s, -webkit-transform 0.5s 1s;
+    -moz-transition:    opacity 1s,    -moz-transform 0.5s 1s;
+    -ms-transition:     opacity 1s,     -ms-transform 0.5s 1s;
+    -o-transition:      opacity 1s,      -o-transform 0.5s 1s;
+    transition:         opacity 1s,         transform 0.5s 1s;
+}
+
+.impress-on-bored .hint {
+    opacity: 1;
+    
+    -webkit-transition: opacity 1s 5s, -webkit-transform 0.5s;
+    -moz-transition:    opacity 1s 5s,    -moz-transform 0.5s;
+    -ms-transition:     opacity 1s 5s,     -ms-transform 0.5s;
+    -o-transition:      opacity 1s 5s,      -o-transform 0.5s;
+    transition:         opacity 1s 5s,         transform 0.5s;
+    
+    -webkit-transform: translateY(0px);
+    -moz-transform:    translateY(0px);
+    -ms-transform:     translateY(0px);
+    -o-transform:      translateY(0px);
+    transform:         translateY(0px);
+}
+
+/* impress.js title */
+
+#title {
+    padding: 0;
+}
+
+#title .try {
+    font-size: 64px;
+    position: absolute;
+    top: -0.5em;
+    left: 1.5em;
+    
+    -webkit-transform: translateZ(20px);
+    -moz-transform:    translateZ(20px);
+    -ms-transform:     translateZ(20px);
+    -o-transform:      translateZ(20px);
+    transform:         translateZ(20px);
+}
+
+#title h1 {
+    font-size: 160px;
+    
+    -webkit-transform: translateZ(50px);
+    -moz-transform:    translateZ(50px);
+    -ms-transform:     translateZ(50px);
+    -o-transform:      translateZ(50px);
+    transform:         translateZ(50px);
+}
+
+#title .footnote {
+    font-size: 32px;
+}
+
+/* big thoughts */
+
+#big {
+    width: 600px;
+    text-align: center;
+    font-size: 60px;
+    line-height: 1;
+}
+
+#big b {
+    display: block;
+    font-size: 250px;
+    line-height: 250px;
+}
+
+#big .thoughts {
+    font-size: 90px;
+    line-height: 150px;
+}
+
+/* tiny ideas */
+
+#tiny {
+    width: 900px;
+    text-align: center;
+}
+
+#ing {
+    width: 500px;
+}
+
+#ing b {
+    display: inline-block;
+    -webkit-transition: 0.5s;
+    -moz-transition:    0.5s;
+    -ms-transition:     0.5s;
+    -o-transition:      0.5s;
+    transition:         0.5s;
+}
+
+#ing.present .positioning {
+    -webkit-transform: translateY(-10px);
+    -moz-transform:    translateY(-10px);
+    -ms-transform:     translateY(-10px);
+    -o-transform:      translateY(-10px);
+    transform:         translateY(-10px);
+}
+
+#ing.present .rotating {
+    -webkit-transform: rotate(-10deg);
+    -moz-transform:    rotate(-10deg);
+    -ms-transform:     rotate(-10deg);
+    -o-transform:      rotate(-10deg);
+    transform:         rotate(-10deg);
+
+    -webkit-transition-delay: 0.25s;
+    -moz-transition-delay:    0.25s;
+    -ms-transition-delay:     0.25s;
+    -o-transition-delay:      0.25s;
+    transition-delay:         0.25s;
+}
+
+#ing.present .scaling {
+    -webkit-transform: scale(1.7);
+    -moz-transform:    scale(1.7);
+    -ms-transform:     scale(1.7);
+    -o-transform:      scale(1.7);
+    transform:         scale(1.7);
+
+    -webkit-transition-delay: 0.5s;
+    -moz-transition-delay:    0.5s;
+    -ms-transition-delay:     0.5s;
+    -o-transition-delay:      0.5s;
+    transition-delay:         0.5s;
+}
+
+/* imagination */
+
+#imagination {
+    text-align: center;
+    width: 900px;
+}
+
+#imagination .imagination {
+    font-size: 78px;
+}
+
+
+
+/* use the source, Luke */
+
+#source {
+    width: 700px;
+    padding-bottom: 300px;
+    background-image: url(data:image/jpg;base64,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);
+    background-position: center right;
+    background-repeat: no-repeat;
+}
+
+#source q {
+    font-size: 60px;
+}
+
+/* it's in 3D */
+
+#its-in-3d p {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style:    preserve-3d; /* Y U need this Firefox?! */
+    -ms-transform-style:     preserve-3d;
+    -o-transform-style:      preserve-3d;
+    transform-style:         preserve-3d;
+}
+
+#its-in-3d span,
+#its-in-3d b {
+    display: inline-block;
+    -webkit-transform: translateZ(40px);
+    -moz-transform:    translateZ(40px);
+    -ms-transform:     translateZ(40px);
+    -o-transform:      translateZ(40px);
+     transform:        translateZ(40px);
+            
+    -webkit-transition: 0.5s;
+    -moz-transition:    0.5s;
+    -ms-transition:     0.5s;
+    -o-transition:      0.5s;
+    transition:         0.5s;
+}
+
+#its-in-3d .have {
+    -webkit-transform: translateZ(-40px);
+    -moz-transform:    translateZ(-40px);
+    -ms-transform:     translateZ(-40px);
+    -o-transform:      translateZ(-40px);
+    transform:         translateZ(-40px);
+}
+
+#its-in-3d .you {
+    -webkit-transform: translateZ(20px);
+    -moz-transform:    translateZ(20px);
+    -ms-transform:     translateZ(20px);
+    -o-transform:      translateZ(20px);
+    transform:         translateZ(20px);
+}
+
+#its-in-3d .noticed {
+    -webkit-transform: translateZ(-40px);
+    -moz-transform:    translateZ(-40px);
+    -ms-transform:     translateZ(-40px);
+    -o-transform:      translateZ(-40px);
+    transform:         translateZ(-40px);
+}
+
+#its-in-3d .its {
+    -webkit-transform: translateZ(60px);
+    -moz-transform:    translateZ(60px);
+    -ms-transform:     translateZ(60px);
+    -o-transform:      translateZ(60px);
+    transform:         translateZ(60px);
+}
+
+#its-in-3d .in {
+    -webkit-transform: translateZ(-10px);
+    -moz-transform:    translateZ(-10px);
+    -ms-transform:     translateZ(-10px);
+    -o-transform:      translateZ(-10px);
+    transform:         translateZ(-10px);
+}
+
+#its-in-3d .footnote {
+    font-size: 32px;
+
+    -webkit-transform: translateZ(-10px);
+    -moz-transform:    translateZ(-10px);
+    -ms-transform:     translateZ(-10px);
+    -o-transform:      translateZ(-10px);
+    transform:         translateZ(-10px);
+}
+
+#its-in-3d.present span,
+#its-in-3d.present b {
+    -webkit-transform: translateZ(0px);
+    -moz-transform:    translateZ(0px);
+    -ms-transform:     translateZ(0px);
+    -o-transform:      translateZ(0px);
+    transform:         translateZ(0px);
+}
+
+/* overview step */
+
+#overview {
+    z-index: -1;
+    padding: 0;
+}
+
+/* on overview step everything is visible */
+
+.impress-on-overview .step {
+    opacity: 1;
+    cursor: pointer;
+}
+
+/*
+ * SLIDE STEP STYLES
+ *
+ * inspired by: http://html5slides.googlecode.com/svn/trunk/styles.css
+ *
+ * ;)
+ */
+
+.slide {
+    display: block;
+
+    width: 900px;
+    height: 700px;
+
+    padding: 40px 60px;
+
+    border-radius: 10px;
+
+    background-color: white;
+
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
+    border: 1px solid rgba(0, 0, 0, .3);
+
+    color: rgb(102, 102, 102);
+    text-shadow: 0 2px 2px rgba(0, 0, 0, .1);
+
+    font-size: 30px;
+    line-height: 36px;
+
+    letter-spacing: -1px;
+}
+
+.slide q {
+    display: block;
+    font-size: 50px;
+    line-height: 72px;
+
+    margin-top: 100px;
+}
+
+.slide q strong {
+    white-space: nowrap;
+}
+
+
+/* IMPRESS NOT SUPPORTED STYLES */
+
+.fallback-message {
+    font-family: sans-serif;
+    line-height: 1.3;
+    
+    display: none;
+    width: 780px;
+    padding: 10px 10px 0;
+    margin: 20px auto;
+
+    border-radius: 10px;
+    border: 1px solid #E4C652;
+    background: #EEDC94;
+}
+
+.fallback-message p {
+    margin-bottom: 10px;
+}
+
+.impress-disabled .step,
+.impress-not-supported .step {
+    position: relative;
+    opacity: 1;
+    margin: 20px auto;
+}
+
+.impress-not-supported .fallback-message {
+    display: block;
+}
+
